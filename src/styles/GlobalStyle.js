@@ -1,5 +1,6 @@
-/* Colors adapted from https://tailwindcss.com/docs/customizing-colors */
+import { createGlobalStyle } from "styled-components";
 
+const GlobalStyle = createGlobalStyle`
 :root {
   /* Indigo */
   --color-brand-50: #eef2ff;
@@ -142,8 +143,8 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
-/*
-FOR DARK MODE
+
+
 
 --color-grey-0: #18212f;
 --color-grey-50: #111827;
@@ -181,3 +182,5 @@ FOR DARK MODE
 --image-grayscale: 10%;
 --image-opacity: 90%;
 
+`;
+export default GlobalStyle;

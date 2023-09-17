@@ -1,31 +1,39 @@
 import { styled } from "styled-components";
-
-const H1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  background-color: #979795;
-`;
-const Button = styled.button`
-  font-size: 1.6rem;
-  padding: 1.2rem 1.6rem;
-  border: none;
-  border-radius: 7px;
-  background-color: purple;
-  color: #ffffff;
-  cursor: pointer;
-`;
-const Input = styled.input`
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
-  padding: 0.8rem 1.2rem;
+import GlobalStyle from "./styles/GlobalStyle";
+import Button from "./ui/Button";
+import Input from "./ui/Input";
+import Heading from "./ui/Heading";
+import Row from "./ui/Row";
+const StyledApp = styled.main`
+  margin: 20px;
 `;
 function App() {
   return (
-    <div>
-      <H1>pouyan has most beautiful mind</H1>
-      <Button>Help</Button>
-      <Input type="number" placeholder="number of guest" />
-    </div>
+    <>
+      <GlobalStyle />
+      <StyledApp>
+        <Row>
+          <Row type="horizontal">
+            <Heading as="h1">pouyan has most </Heading>
+            <div>
+              <Button variations="primary" size="medium">
+                hello
+              </Button>
+              <Heading as="h2">pouyan has not most </Heading>
+            </div>
+          </Row>
+          <Row>
+            <Button variations="secondary" size="small">
+              Help
+            </Button>
+            <Input type="text" />
+            <form>
+              <Input type="number" placeholder="number of guest" />
+            </form>
+          </Row>
+        </Row>
+      </StyledApp>
+    </>
   );
 }
 
