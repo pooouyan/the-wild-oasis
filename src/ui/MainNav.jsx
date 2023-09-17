@@ -1,12 +1,20 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import {
+  HiCalendar,
+  HiOutlineCalendar,
+  HiOutlineCog6Tooth,
+  HiOutlineHome,
+  HiOutlineHomeModern,
+  HiOutlineUsers,
+} from "react-icons/hi2";
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 `;
 
-const Link = styled.a`
+const StyledLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
@@ -44,3 +52,45 @@ const Link = styled.a`
     color: var(--color-brand-600);
   }
 `;
+
+function MainNav() {
+  return (
+    <nav>
+      <NavList>
+        <li>
+          <StyledLink to="/dashboard">
+            <HiOutlineHome />
+            <span>Home</span>
+          </StyledLink>
+        </li>
+
+        <li>
+          <StyledLink to="/bookings">
+            <HiOutlineCalendar />
+            <span>Booking</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/cabins">
+            <HiOutlineHomeModern />
+            <span>Cabins</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/users">
+            <HiOutlineUsers />
+            <span>Users</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/settings">
+            <HiOutlineCog6Tooth />
+            <span>Setting</span>
+          </StyledLink>
+        </li>
+      </NavList>
+    </nav>
+  );
+}
+
+export default MainNav;
