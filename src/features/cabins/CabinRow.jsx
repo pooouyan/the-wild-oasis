@@ -49,8 +49,8 @@ function CabinRow({ cabin }) {
     name,
     image,
     maxCapacity,
-    requlerPrice,
-    dicount,
+    regularPrice,
+    discount,
   } = cabin;
 
   const queryClient = useQueryClient();
@@ -60,7 +60,7 @@ function CabinRow({ cabin }) {
     onSuccess: () => {
       toast.success("deleted !!");
       queryClient.invalidateQueries({
-        queryKey: "cabin",
+        queryKey: ["cabins"],
       });
     },
     onError: (err) => toast.error(err.message),
@@ -70,8 +70,8 @@ function CabinRow({ cabin }) {
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>fits up to {maxCapacity} geusts</div>
-      <Price>{formatCurrency(requlerPrice)}</Price>
-      <Discount>{formatCurrency(dicount)}</Discount>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
       <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
         delete
       </button>
